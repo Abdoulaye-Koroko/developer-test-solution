@@ -1,13 +1,35 @@
 import numpy as np
 import os
 
-from utils import build_universe
+from utils import Graph
 
-def solve(day, planet, autonomy, k, empire, millenium_falcon, ANSWER) :
-    
-    db_path = os.path.abspath(millenium_falcon["routes_db"])
-    table_name = 'ROUTES'
-    universe = build_universe(db_path,table_name)
+
+def solve(universe:Graph, day:int, planet:str, autonomy:int,
+          k:int, empire: dict, millenium_falcon:dict, ANSWER:dict) -> None :
+    """
+     Compute the odd that Millennium Falcon reaches the final planet in time and saves the galaxy. 
+     It is based on DFS algorithm
+     
+     Parameters
+     ----------
+     universe: Graph
+         The graph representing the universe.
+     day: int
+         The day Millenium Falcon appears on the planet.
+     planet: int
+         The planet where Millenium Falcon is currently.
+    autonomy: int
+        Remaining fuel of Millenium Falcon.
+    k: int
+        Number of times Millenium Falcon encountered the bounty hunters.
+    empire: dict
+        The empire data.
+    millenium_facon: dict
+        the Millenium falcon data
+    ANSWER: dict[str:int]
+        Dictionary of one item with the key is 'probability and the value is the odd'
+          
+    """
     
     if day > empire["countdown"] or autonomy < 0 :
         return 
@@ -16,15 +38,13 @@ def solve(day, planet, autonomy, k, empire, millenium_falcon, ANSWER) :
     k += is_enemy_here
     
     if planet == millenium_falcon["arrival"] :
-       
         ANSWER['probability'] = max(ANSWER['probability'], 1 - np.sum(np.array([1 / 10 * (9 / 10)**i for i in range(k)])))
         return
-        
-    #solve(day + 1, planet, millenium_falcon_json["autonomy"], k, ANSWER) 
-    solve(day+1, planet,  millenium_falcon["autonomy"], k, empire, millenium_falcon, ANSWER)
+         
+    solve(universe,day+1, planet,  millenium_falcon["autonomy"], k, empire, millenium_falcon, ANSWER)
+    
     for (neighbour, duration_days) in universe.get_neighbors(planet) :
-        #solve(day + duration_days, neighbour, autonomy - duration_days, k, ANSWER)
-        solve(day + duration_days, neighbour,  autonomy - duration_days, k, empire, millenium_falcon, ANSWER)
+        solve(universe,day + duration_days, neighbour,  autonomy - duration_days, k, empire, millenium_falcon, ANSWER)
         
     return 
                          
