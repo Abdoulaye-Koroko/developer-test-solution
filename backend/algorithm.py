@@ -1,7 +1,7 @@
 import numpy as np
 import os
 
-from utils import Graph
+from .utils import Graph
 
 
 def solve(universe:Graph, day:int, planet:str, autonomy:int,

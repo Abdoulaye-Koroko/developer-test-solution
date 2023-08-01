@@ -1,9 +1,9 @@
 import sys
 import os
 
-from utils import read_json_file
-from algorithm import solve
-from utils import build_universe
+from .utils import read_json_file
+from .algorithm import solve
+from .utils import build_universe
 
 
 def main(path_to_empire:str, path_to_falcon_millenimum:str) -> None:
