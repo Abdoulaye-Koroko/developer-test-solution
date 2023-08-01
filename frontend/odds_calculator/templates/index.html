@@ -84,16 +84,22 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="file-upload">
-            <label for="data_file">Upload JSON File</label>
+            <label for="data_file">Upload an Empire JSON file</label>
             <input type="file" name="data_file" id="data_file">
             <span class="file-name"></span>
         </div>
-        <button type="submit">Calculate Odds</button>
         {% if error_message %}
-        <div class="error">{{ error_message }}</div>
+        <div class="error" > <font color="red">{{ error_message }}</font></div>
         {% endif %}
+        <br>
+        <button type="submit">Calculate Odds</button>
     </form>
+    {% if odds >= 0 %}
     <h2>Millenimum Falcon has <font color="magenta"> {{ odds }}% </font>chance to arrive at destination in time and saves the galaxy.</h2>
+    {% else %}
+    <h2>Upload a valid JSON file containing the data intercepted by the rebels about the plans of the Empire.</h2>
+    {% endif %}
+    
     
 
     <script>
