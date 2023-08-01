@@ -8,6 +8,7 @@ from backend.algorithm import solve
 from backend.utils import build_universe
 
 
+
 def main(path_to_empire:str, path_to_falcon_millenimum:str) -> None:
     """
     The main function. Prints the chance that Millenium Falcon arrives at destination
