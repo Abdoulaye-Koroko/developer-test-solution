@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 import json
 
-from .utils import calculate_odds
+from odds_calculator.utils import calculate_odds
 
 
 def index(request):
