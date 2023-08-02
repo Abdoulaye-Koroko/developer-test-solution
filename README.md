@@ -58,14 +58,19 @@ $ python manage.py runserver
 You should be able to access the web application at **http://127.0.0.1:8000/**.
 
 Here's an image of the web application's home page.
+
 ![](resources/Web1.PNG)
 
 If you upload a valid Empire JSON file, the web interface you  should display the odds in percentage as illustrated
 by the following image.
+
 ![](resources/Web2.PNG)
 
 If you upload a non-valid Empire JSON file, the web application should invite
-you to upload a new file.
+you to upload as shown below.
+
+![](resources/Web3.PNG)
+
 
 
 
