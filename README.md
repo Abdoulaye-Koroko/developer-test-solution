@@ -67,7 +67,7 @@ by the following image.
 ![](resources/Web2.PNG)
 
 If you upload a non-valid Empire JSON file, the web application should invite
-you to upload as shown below.
+you to upload a new file as shown below.
 
 ![](resources/Web3.PNG)
 
