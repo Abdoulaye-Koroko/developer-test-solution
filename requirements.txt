@@ -1,0 +1,7 @@
+asgiref==3.7.2
+-e git+https://github.com/Abdoulaye-Koroko/developer-test-solution.git@dd23d33e8f1e88cfe8c5ec28218cbd6d8a65ddd4#egg=developer_test_solution
+Django==4.2.4
+numpy==1.25.2
+sqlparse==0.4.4
+typing_extensions==4.7.1
+tzdata==2023.3
