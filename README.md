@@ -52,7 +52,7 @@ To start the web application just run the following command-lines :
 
 ```sh
 $ cd frontend
-$  python manage.py runserver
+$ python manage.py runserver
 
 ```
 You should be able to access the web application at **http://127.0.0.1:8000/**.
