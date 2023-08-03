@@ -27,7 +27,7 @@ $ pip install -r requirements.txt
 ## Algorithm
 
 
-The main function for solving the problem is implemented in ` backend/algorithm:solve`. It is based on [Depth-first search (DFS) algorithm](https://en.wikipedia.org/wiki/Depth-first_search) for traversing a graph. The function computes the probabilities of all possible routes from the starting planet to the arrival planet and returns the maximum probability.
+The main function for solving the problem is implemented in ` backend/algorithm:solve`. It is a recursive function that computes the probabilities of all possible routes from the starting planet to the arrival planet and returns the maximum probability.
 
 
 ## Obtaining the odds from command line
