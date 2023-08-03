@@ -7,7 +7,7 @@ from backend.utils import Graph
 def solve(universe:Graph, day:int, planet:str, autonomy:int,
           k:int, empire: dict, millenium_falcon:dict, ANSWER:dict) -> None :
     """
-     Compute the odd that Millennium Falcon reaches the final planet in time and saves the galaxy. 
+     Compute the odds that Millennium Falcon reaches the final planet in time and saves the galaxy. 
      It is based on DFS algorithm
      
      Parameters
@@ -26,8 +26,8 @@ def solve(universe:Graph, day:int, planet:str, autonomy:int,
         The empire data.
     millenium_facon: dict
         the Millenium falcon data
-    ANSWER: dict[str:int]
-        Dictionary of one item with the key is 'probability and the value is the odd'
+    ANSWER: dict[str:double]
+        Dictionary of one item which maps odds to its value.'
           
     """
     
@@ -38,13 +38,13 @@ def solve(universe:Graph, day:int, planet:str, autonomy:int,
     k += is_enemy_here
     
     if planet == millenium_falcon["arrival"] :
-        ANSWER['probability'] = max(ANSWER['probability'], 1 - np.sum(np.array([1 / 10 * (9 / 10)**i for i in range(k)])))
+        ANSWER['odds'] = max(ANSWER['odds'], 1 - np.sum(np.array([1 / 10 * (9 / 10)**i for i in range(k)])))
         return
          
-    solve(universe,day+1, planet,  millenium_falcon["autonomy"], k, empire, millenium_falcon, ANSWER)
+    solve(universe,day+1, planet, millenium_falcon["autonomy"], k, empire, millenium_falcon, ANSWER)
     
     for (neighbour, duration_days) in universe.get_neighbors(planet) :
-        solve(universe,day + duration_days, neighbour,  autonomy - duration_days, k, empire, millenium_falcon, ANSWER)
+        solve(universe, day + duration_days, neighbour, autonomy - duration_days, k, empire, millenium_falcon, ANSWER)
         
     return 
                          
