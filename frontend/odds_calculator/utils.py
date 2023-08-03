@@ -27,12 +27,12 @@ def calculate_odds(empire_data):
     table_name = 'ROUTES'
     universe = build_universe(db_path,table_name)
     day = 0 
-    ANSWER = {'probability' : 0}
+    ANSWER = {'odds' : 0}
     departure = falcon_millenium['departure']
     autonomy = falcon_millenium['autonomy']
     k = 0
     solve(universe,day, departure, autonomy, k, empire, falcon_millenium, ANSWER)
     
-    odd = ANSWER['probability']
+    odds = ANSWER['odds']
     
-    return 100*odd
+    return float(f"{odds*100:.2f}")
