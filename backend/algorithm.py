@@ -40,10 +40,13 @@ def solve(universe:Graph, day:int, planet:str, autonomy:int,
     if planet == millenium_falcon["arrival"] :
         ANSWER['odds'] = max(ANSWER['odds'], 1 - np.sum(np.array([1 / 10 * (9 / 10)**i for i in range(k)])))
         return
-         
+    
+    # Option 1: Stay at the current planet     
     solve(universe,day+1, planet, millenium_falcon["autonomy"], k, empire, millenium_falcon, ANSWER)
     
+   
     for (neighbour, duration_days) in universe.get_neighbors(planet) :
+         # Option 2: Travel to a neighboring planet
         solve(universe, day + duration_days, neighbour, autonomy - duration_days, k, empire, millenium_falcon, ANSWER)
         
     return 
