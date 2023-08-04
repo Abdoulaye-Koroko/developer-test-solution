@@ -42,10 +42,10 @@ Millennium Falcon has 81.0% chance to reache Endor in time and saves the galaxy.
 
 ## Obtaining the odds from web page
 
-You can also obtain the odds from a web page that consists of a single-page application allowing you to upload a JSON file containing the data intercepted by the rebels about the plans of the Empire i.e. the **empire.json** file. It assumes that **millennium-falcon.json** and the database **universe.db** are already integrated into the application, i.e. not supplied by the user. Here we use `examples/example1/millennium-falcon.json` and `examples/example1/universe.db` as references. You can change them by changing  `path_to_falcon_millenimum` in `frontend/odds_calculator/utils:calculate_odds
-` function  to the path towards the new reference database. 
+You can also obtain the odds from a web page that consists of a single-page application allowing you to upload a JSON file containing the data intercepted by the rebels about the plans of the Empire i.e. the **empire.json** file. It assumes that **millennium-falcon.json** and the database **universe.db** are already integrated into the application, i.e. they are not supplied by the user. Here I use `examples/example1/millennium-falcon.json` and `examples/example1/universe.db` as references. You can change them by changing  `path_to_falcon_millenimum` in `frontend/odds_calculator/utils:calculate_odds
+function  to the path towards the new reference database. 
 
-The webage is developed with **Django** framework. 
+The webage is developed with [Django framework](https://www.djangoproject.com/). 
 
 To start the web application just run the following command-lines :
 
@@ -71,6 +71,7 @@ you to upload a new file as shown below.
 
 ![](resources/Web3.PNG)
 
+Thank you so much:)
 
 
 
